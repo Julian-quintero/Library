@@ -1,0 +1,49 @@
+.container{
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr; 
+ grid-template-rows: repeat(auto,1fr);
+ grid-template-areas: 
+
+ "form form form"
+ "content content content";
+ 
+
+
+}
+
+#form{
+
+ background-color: aqua;
+ grid-area: form;
+
+}
+
+.card{
+
+    background-color: green;
+    
+    border: 3px solid red;
+
+
+}
+
+.items{
+    grid-area: content;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+    /*grid-template-rows: repeat(auto,1fr);*/
+
+}
+
+.card img {
+    width: 100%;
+}
+
+.card-title{
+
+    font-size: 2rem;
+    text-align: center;
+}
+
+
+
