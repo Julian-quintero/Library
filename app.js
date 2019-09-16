@@ -52,20 +52,36 @@ function showElements(form) {
 
     
 
+    console.log(params);
+
+    
+
     var div_usuarios = document.querySelector(".items");
 
     var a = document.createElement("div");
     var b = document.createElement("header");
+
+
   
     a.className = "card"
     b.className = "card-title"
+
   
   
     b.innerHTML = params.title;
+
+
+    var c = document.createElement("div");
+
+
+    c.className = "card-description"
+
+    c.innerHTML = params.author;
+
   
   
     div_usuarios.appendChild(a).appendChild(b);
-    
+    b.parentElement.appendChild(c);
     
   }
 
