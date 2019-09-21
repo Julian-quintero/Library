@@ -17,7 +17,14 @@ class Book {
 
 //myLibrary.push(book);
 
+let tittle = document.getElementById("title");
 
+tittle.addEventListener("keyup",()=>{
+  if (title.value.length > 20) {
+    tittle.value = tittle.value.slice(0,20);
+    
+  }
+})
 
 
 
@@ -30,7 +37,7 @@ function showElements(form) {
   console.log(myLibrary);
 
 
-  let book = new Book(form.author.value, form.title.value, form.pages.value, form.checkbox.checked);
+  let book = new Book(form.title.value,form.author.value,  form.pages.value, form.checkbox.checked);
 
   myLibrary.push(book);
 
@@ -59,8 +66,8 @@ function render(params, index) {
 
 
 
-  a.className = "card"
-  b.className = "card-title"
+  a.className = "card";
+  b.className = "card-title";
 
 
 
