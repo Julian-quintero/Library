@@ -44,6 +44,10 @@ function showElements(form) {
 
   myLibrary.forEach((book, index) => render(book, index));
 
+  form.title.value="";
+  form.pages.value="";
+  form.author.value="";
+
 }
 
 function render(params, index) {
@@ -141,6 +145,9 @@ function deleteBook(form) {
 
 
 function reset() {
+  
+ 
+
   var element = document.getElementById("items");
   element.parentNode.removeChild(element);
 
