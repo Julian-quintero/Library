@@ -51,14 +51,14 @@ border-radius: 12px;
 
     display: flex;
     flex-direction: column;
-
+    
 
 }
 
 .items{
     grid-area: content;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
     /*grid-template-rows: repeat(auto,1fr);*/
     grid-gap: 3px;
 
@@ -76,6 +76,19 @@ border-radius: 12px;
 }
 
 .card-description{
+  text-align: center;
+ word-break: break-word;
+
+}
+
+.card button{
+
+    background: #96e6a1;
+    border-radius: 10px;
+}
+
+.card-pages{
+
   text-align: center;
 
 }

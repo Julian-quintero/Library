@@ -1,7 +1,5 @@
 var myLibrary = [];
 
-var p;
-
 
 class Book {
   constructor(title, author, pages, read) {
@@ -12,10 +10,6 @@ class Book {
   }
 }
 
-
-//let book = new Book(title,author,genre,read);
-
-//myLibrary.push(book);
 
 let tittle = document.getElementById("title");
 
@@ -34,13 +28,9 @@ function showElements(form) {
 
   reset();
 
-  console.log(myLibrary);
-
-
-  let book = new Book(form.title.value,form.author.value,  form.pages.value, form.checkbox.checked);
+  let book = new Book(form.title.value,form.author.value, form.pages.value, form.checkbox.checked);
 
   myLibrary.push(book);
-
 
   myLibrary.forEach((book, index) => render(book, index));
 
@@ -48,71 +38,54 @@ function showElements(form) {
   form.pages.value="";
   form.author.value="";
 
+  console.log(myLibrary);
+  
+
 }
 
 function render(params, index) {
 
-  //console.log(params);
-  //console.log(index);
 
-  //console.log(params);
+  var container = document.querySelector(".items");
 
-
-
-
-
-
-  var div_usuarios = document.querySelector(".items");
+  let div = document.createElement("div");
+  let header = document.createElement("header");
+  let c = document.createElement("div");
+  let button = document.createElement("button");
 
 
-  var a = document.createElement("div");
-  var b = document.createElement("header");
-
-
-
-  a.className = "card";
-  b.className = "card-title";
-
-
-
-
-  b.innerHTML = params.title;
-
-
-  var c = document.createElement("div");
-
-
+  div.className = "card";
+  header.className = "card-title";
+  header.innerHTML = params.title;
   c.className = "card-description";
-
   c.innerHTML = params.author;
 
+  div.dataset.id = index;
 
-  a.dataset.id = index;
+ 
 
-  p = a.dataset.id;
-
-
-
-  var button = document.createElement("button");
   button.type = "button";
   button.innerHTML = "delete";
 
 
+  container.appendChild(div).appendChild(header);
+  header.parentElement.appendChild(c);
+  c = document.createElement("div");
+  c.className = "card-pages";
+  c.innerHTML = params.pages;
+  header.parentElement.appendChild(c);
 
 
-
-
-
-
-  div_usuarios.appendChild(a).appendChild(b);
-  b.parentElement.appendChild(c)
-  b.parentElement.appendChild(button);
+  header.parentElement.appendChild(button);
 
   button.setAttribute("onclick", "deleteBook(`${parentElement.dataset.id}`)");
 
+  button = document.createElement("button");
+  button.type = "button";
+  button.innerHTML = "Read: yes";
+  header.parentElement.appendChild(button);
 
-  console.log();
-
+  button.setAttribute("onclick", "readStatus(`${parentElement.dataset.id}`)");
 
 
 
@@ -120,27 +93,25 @@ function render(params, index) {
 }
 
 function deleteBook(form) {
-  console.log(form);
 
   myLibrary.splice(form,1);
-
   reset();
   myLibrary.forEach((book, index) => render(book, index));
 
+}
 
+function readStatus(params) {
 
+  
+  
 
+  if (  myLibrary[params].read==true) {
+    myLibrary[params].read=false;    
+  }else
+  myLibrary[params].read=true;  
 
-
-  //   var div_usuarioss = document.querySelector(".card");
-
-  // if (div_usuarioss.dataset.id==form) {
-  //   div_usuarioss.remove();
-
-
-  //   console.log(myLibrary);
-
-
+ 
+  
 }
 
 
@@ -148,13 +119,14 @@ function reset() {
   
  
 
-  var element = document.getElementById("items");
+  let element = document.getElementById("items");
+  let z = document.createElement("div");
+
   element.parentNode.removeChild(element);
 
-  div_usuarios = document.querySelector(".container");
-  var z = document.createElement("div");
+  container = document.querySelector(".container");
   z.className = "items";
   z.setAttribute("id", "items");
-  div_usuarios.appendChild(z)
+  container.appendChild(z)
 
 }
