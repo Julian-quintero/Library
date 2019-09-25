@@ -1,6 +1,7 @@
 var myLibrary = [];
 
 
+
 class Book {
   constructor(title, author, pages, read) {
     this.title = title;
@@ -20,6 +21,21 @@ tittle.addEventListener("keyup",()=>{
   }
 })
 
+window.onload = () =>{
+
+  document.getElementById("form").style.display="none";
+  fillLibrary();
+  myLibrary.forEach((book, index) => render(book, index));
+
+
+}
+
+function showForm(){
+  document.getElementById("form").style.display="block";
+  document.getElementById("showForm").style.display="none";
+
+
+}
 
 
 
@@ -29,7 +45,7 @@ function showElements(form) {
   reset();
 
   let book = new Book(form.title.value,form.author.value, form.pages.value, form.checkbox.checked);
-
+  
   myLibrary.push(book);
 
   myLibrary.forEach((book, index) => render(book, index));
@@ -38,8 +54,7 @@ function showElements(form) {
   form.pages.value="";
   form.author.value="";
 
-  console.log(myLibrary);
-  
+
 
 }
 
@@ -65,7 +80,7 @@ function render(params, index) {
  
 
   button.type = "button";
-  button.innerHTML = "delete";
+  button.innerHTML = "Delete";
 
 
   container.appendChild(div).appendChild(header);
@@ -82,10 +97,19 @@ function render(params, index) {
 
   button = document.createElement("button");
   button.type = "button";
-  button.innerHTML = "Read: yes";
+
+ button.id=index;
+
   header.parentElement.appendChild(button);
 
+  button.innerHTML=`Already read: ${myLibrary[index].read}`;
+  
+
+  
   button.setAttribute("onclick", "readStatus(`${parentElement.dataset.id}`)");
+
+
+
 
 
 
@@ -93,37 +117,37 @@ function render(params, index) {
 }
 
 function deleteBook(form) {
-
   myLibrary.splice(form,1);
   reset();
   myLibrary.forEach((book, index) => render(book, index));
-
 }
 
 function readStatus(params) {
-
-  
-  
+  let buttonSelector = document.getElementById(params);
 
   if (  myLibrary[params].read==true) {
-    myLibrary[params].read=false;    
+    myLibrary[params].read=false;  
+    buttonSelector.innerHTML=`Already read: ${myLibrary[params].read}`;
+    return;  
   }else
   myLibrary[params].read=true;  
+  buttonSelector.innerHTML= `Already read: ${myLibrary[params].read}`;
+}
 
- 
+function fillLibrary() {
+  const greatGatsby = new Book("The great gatsby","F.Scott", "218",true);
+  
+  myLibrary.push(greatGatsby);
+  console.log(myLibrary);
+  
   
 }
 
 
 function reset() {
-  
- 
-
   let element = document.getElementById("items");
   let z = document.createElement("div");
-
   element.parentNode.removeChild(element);
-
   container = document.querySelector(".container");
   z.className = "items";
   z.setAttribute("id", "items");
