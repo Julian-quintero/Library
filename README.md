@@ -1,9 +1,8 @@
-# Library
- Library project for odin project website
- 
 # README
 
 ## Library App
+
+Library project for odin project website
 
 [*Library App Project*](https://www.theodinproject.com/courses/javascript/lessons/library)
 
