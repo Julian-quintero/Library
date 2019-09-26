@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Library</title>
 
     <link rel="stylesheet" href="./styles.css">
 </head>
@@ -13,61 +13,24 @@
 <body>
 
     <div class="container">
- 
-         <button id="showForm" type="button" onclick="showForm()">Add book</button>
+
+        <button id="showForm" type="button" onclick="showForm()">Add book</button>
 
         <form id="form" action="" method="get">
-
-
             <input type="text" name="title" id="title" placeholder="Title">
-
             <input type="text" name="author" id="author" placeholder="Author">
-            <input type="text" name="pages" id="pages" placeholder="Pages">
+            <input type="number" name="pages" id="pages" placeholder="Pages">
             <span>Read?</span>
             <input type="checkbox" name="checkbox" id="checkbox">
-            
-
-
             <button id="form-button" type="button" onclick="showElements(this.form)">add</button>
         </form>
 
-
         <div id="items" class="items">
-            <!--  here que generate the cards-->
-            <!--
-
-                <div class="card">
-
-                <header class="card-title">hello world</header>
-
-                <figure class="card-picture">
-
-                    <img src="https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1438&q=80"
-                        alt="" srcset="">
-                </figure>
-
-                <div class="card-description"></div>
-
-            </div>
-            -->
-            
-           
         </div>
 
-
-
     </div>
 
-
-
-
     </div>
-
-
-
-
     <script src="./app.js"></script>
-
 </body>
-
 </html>

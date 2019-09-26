@@ -1,7 +1,5 @@
 var myLibrary = [];
 
-
-
 class Book {
   constructor(title, author, pages, read) {
     this.title = title;
@@ -10,7 +8,6 @@ class Book {
     this.read = read;
   }
 }
-
 
 let tittle = document.getElementById("title");
 
@@ -27,20 +24,18 @@ window.onload = () =>{
   fillLibrary();
   myLibrary.forEach((book, index) => render(book, index));
 
-
 }
 
 function showForm(){
   document.getElementById("form").style.display="block";
   document.getElementById("showForm").style.display="none";
 
-
 }
 
-
-
-
 function showElements(form) {
+
+  document.getElementById("showForm").style.display="block";
+  document.getElementById("form").style.display="none";
 
   reset();
 
@@ -54,13 +49,10 @@ function showElements(form) {
   form.pages.value="";
   form.author.value="";
 
-
-
 }
 
 function render(params, index) {
-
-
+  
   var container = document.querySelector(".items");
 
   let div = document.createElement("div");
@@ -71,9 +63,9 @@ function render(params, index) {
 
   div.className = "card";
   header.className = "card-title";
-  header.innerHTML = params.title;
+  header.innerHTML = `Title: ${params.title}`;
   c.className = "card-description";
-  c.innerHTML = params.author;
+  c.innerHTML = `Author: ${params.author}`;
 
   div.dataset.id = index;
 
@@ -87,7 +79,7 @@ function render(params, index) {
   header.parentElement.appendChild(c);
   c = document.createElement("div");
   c.className = "card-pages";
-  c.innerHTML = params.pages;
+  c.innerHTML = `Pages: ${params.pages}`;
   header.parentElement.appendChild(c);
 
 
@@ -99,6 +91,7 @@ function render(params, index) {
   button.type = "button";
 
  button.id=index;
+ button.className="readButton";
 
   header.parentElement.appendChild(button);
 
@@ -138,8 +131,7 @@ function fillLibrary() {
   const greatGatsby = new Book("The great gatsby","F.Scott", "218",true);
   
   myLibrary.push(greatGatsby);
-  console.log(myLibrary);
-  
+
   
 }
 
