@@ -68,10 +68,10 @@ border-radius: 5px;
 }
 
 .card-title{
-    overflow: hidden;
     
     font-size: 2rem;
     text-align: center;
+    word-break: break-all;
 }
 
 .card-description{
